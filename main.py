@@ -12,7 +12,7 @@ def hent_bilder():
 
     mappe_sti = bilde_mappe if os.path.exists(bilde_mappe) else ""
     
-    for filtype in ("*.jpg", "*.png", "*.jpeg", "*.tiff", "*.tif", "*.bmp", "*.gif", "*.DNG"):
+    for filtype in ("*.jpg", "*.JPG", "*.png", "*.jpeg", "*.tiff", "*.tif", "*.bmp", "*.gif", "*.DNG"):
         soke_sti = os.path.join(mappe_sti, filtype) if mappe_sti else filtype
         bilde_liste.extend(glob(soke_sti))
     return bilde_liste
