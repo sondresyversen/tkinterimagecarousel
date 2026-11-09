@@ -25,5 +25,4 @@ A lightweight and responsive desktop image carousel application built using Pyth
    ```bash
    python main.py
    ```
-*(Note: Replace `main.py` with your actual Python file name if it is named differently, like `carousel.py`.)*
 
