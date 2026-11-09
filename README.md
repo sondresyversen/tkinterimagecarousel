@@ -15,7 +15,7 @@ A lightweight and responsive desktop image carousel application built using Pyth
 ### How to Run Locally
 1. Clone the repository to your machine:
    ```bash
-   git clone https://github.com
+   git clone https://github.com/sondresyversen/tkinterimagecarousel/
    ```
 2. Install the required image processing library:
    ```bash
