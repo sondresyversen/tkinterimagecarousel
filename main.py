@@ -6,10 +6,10 @@ from PIL import Image, ImageTk
 
 def hent_bilder():
     bilde_liste = []
-    # Angir stien til undermappen med bildene dine
+
     bilde_mappe = "images"
     
-    # Hvis mappen finnes, leter vi der. Hvis ikke, leter vi i rotmappen.
+
     mappe_sti = bilde_mappe if os.path.exists(bilde_mappe) else ""
     
     for filtype in ("*.jpg", "*.png", "*.jpeg", "*.tiff", "*.tif", "*.bmp", "*.gif", "*.DNG"):
@@ -57,7 +57,6 @@ def forrige():
         vis_bilde()
 
 
-# -------------------- UI --------------------
 
 root = Tk()
 root.geometry("1000x700")
