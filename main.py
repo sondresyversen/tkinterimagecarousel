@@ -1,12 +1,20 @@
 from tkinter import *
 from glob import glob
+import os
 from PIL import Image, ImageTk
 
 
 def hent_bilder():
     bilde_liste = []
+    # Angir stien til undermappen med bildene dine
+    bilde_mappe = "images"
+    
+    # Hvis mappen finnes, leter vi der. Hvis ikke, leter vi i rotmappen.
+    mappe_sti = bilde_mappe if os.path.exists(bilde_mappe) else ""
+    
     for filtype in ("*.jpg", "*.png", "*.jpeg", "*.tiff", "*.tif", "*.bmp", "*.gif", "*.DNG"):
-        bilde_liste.extend(glob(filtype))
+        soke_sti = os.path.join(mappe_sti, filtype) if mappe_sti else filtype
+        bilde_liste.extend(glob(soke_sti))
     return bilde_liste
 
 
@@ -41,6 +49,7 @@ def neste():
         current_index = (current_index + 1) % len(bilder)
         vis_bilde()
 
+
 def forrige():
     global current_index, bilder
     if bilder:
@@ -48,7 +57,7 @@ def forrige():
         vis_bilde()
 
 
-
+# -------------------- UI --------------------
 
 root = Tk()
 root.geometry("1000x700")
@@ -57,14 +66,11 @@ root.title("Bildekarusell")
 bilder = hent_bilder()
 current_index = 0
 
-
 bilde_frame = Frame(root)
 bilde_frame.pack(fill=BOTH, expand=True)
 
-
 bilde_label = Label(bilde_frame)
 bilde_label.place(relx=0.5, rely=0.5, anchor=CENTER)
-
 
 forrige_knapp = Button(
     bilde_frame,
